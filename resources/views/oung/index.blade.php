@@ -2,17 +2,9 @@
 
 @section('content')
 
-<div class="my-4 flex flex-col">
-    {{-- breadcrumbs --}}
-    <div class="flex flex-row text-sm">
-        <a href="#">Oung</a>
-    </div>
-    <div class="font-bold text-2xl">
-        Apps
-    </div>
-</div>
+<x-headline :breadcrumbs="$breadcrumbs">Apps</x-headline>
 
-<div class="flex flex-col space-y-4">
+<div class="flex flex-col space-y-2">
     <div class="">
         <span class="font-bold">Budget</span> - Minimalist budget, expense and income tracking web app.
     </div>

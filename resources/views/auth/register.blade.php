@@ -77,9 +77,12 @@
         >
     </div>
     {{-- privacy agree --}}
-    <label for="privacy-policy" class="mb-4">
+    <div class="mb-4">
+        By clicking register, you agree to our <a class="text-blue-700">privacy</a> and <a class="text-blue-700">terms</a>.
+    </div>
+    {{-- <label for="privacy-policy" class="mb-4">
         <input type="checkbox" name="privacy-policy" id="privacy-policy" {{ old('remember') ? 'checked' : '' }}> I agree the privacy policy
-    </label>
+    </label> --}}
     {{-- submit button --}}
     <div class="flex flex-col">
         <button 
