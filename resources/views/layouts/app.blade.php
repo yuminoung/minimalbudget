@@ -20,15 +20,15 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
 <body>
-    <div id="app" class="font-baloo bg-gray-100 min-h-screen">
-        <header class="">
+    <div id="app" class="font-baloo bg-gray-100 flex flex-col min-h-screen">
+        <header class="shadow">
             <div class="flex flex-row justify-between items-center w-1/2 mx-auto">
                 <div class="font-bold text-2xl p-4">
                     <a href="{{ url('/') }}" class="inline-block">Oung</a>
                 </div>
                 <div class="flex flex-row">
                     @auth
-                        <a href="#" class="p-4">{{ auth()->user()->name }}</a>
+                        <a href="{{ route('oung.profile.index') }}" class="p-4">{{ auth()->user()->name }}</a>
 
                         {{-- <div class="relative">
                             <button class="p-4 block">                        
@@ -50,13 +50,20 @@
             </div>
         </header>
 
-        <main class="px-4 w-1/2 mx-auto">
+        <main class="px-4 w-1/2 mx-auto flex-grow">
             @yield('content')
         </main>
         
-        <footer class="p-4 w-1/2 mx-auto m-4 text-center">
+        <footer class="p-4 w-1/2 mx-auto">
             {{-- <div class="shadow bg-gray-100 p-4"> --}}
             &copy; 2020 Oung. All rights reserved.
+            <div class="flex flex-row">
+                <a href="#" class="mr-4">About</a>
+                <a href="#" class="mr-4">Blog</a>
+                <a href="#" class="mr-4">Hire</a>
+                <a href="#" class="mr-4">Privacy</a>
+                <a href="#" class="">Terms</a>
+            </div>
             {{-- </div> --}}
         </footer>
     </div>

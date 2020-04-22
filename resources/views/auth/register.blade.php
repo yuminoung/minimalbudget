@@ -15,20 +15,19 @@
 </div>
 
 <form 
-    class="flex flex-col p-4 bg-white shadow mx-auto" 
+    class="flex flex-col w-1/2" 
     action="{{ route('register') }}"
     method="POST"
 >
     @csrf
     {{-- name field --}}
     <div class="flex flex-col mb-4">
-        <label for="name" class="mb-2">Name</label>
+        <label for="name">Name</label>
         <input 
             type="text"
             id="name" 
             name="name" 
-            class="p-4 bg-gray-100 focus:outline-none focys:shadow-outline shadow focus:shadow-outline"
-            autofocus
+            class="p-4 bg-white focus:outline-none focys:shadow-outline shadow focus:shadow-outline rounded"
         >
         @error('name')
         <div class="text-sm text-red-700 mt-2">
@@ -38,13 +37,13 @@
     </div>
     {{-- email field --}}
     <div class="flex flex-col mb-4">
-        <label for="email" class="mb-2">E-Mail Address</label>
+        <label for="email">E-Mail Address</label>
         <input 
             type="text" 
             id="email"
             name="email"
-            class="p-4 bg-gray-100 focus:outline-none focus:shadow-outline shadow"
-            autocomplete="email"
+            class="p-4 bg-white focus:outline-none focus:shadow-outline shadow rounded"
+            autocomplete="off"
         >
         @error('email')
         <div class="text-sm text-red-700 mt-2">
@@ -54,13 +53,12 @@
     </div>
     {{-- password field --}}
     <div class="flex flex-col mb-4">
-        <label for="password" class="mb-2">Password</label>
+        <label for="password">Password</label>
         <input 
             type="password" 
             id="password"
             name="password"
-            class="p-4 bg-gray-100 focus:outline-none focus:shadow-outline shadow"
-            autocomplete="new-password"
+            class="p-4 bg-white focus:outline-none focus:shadow-outline shadow rounded"
         >
         @error('password')
         <div class="text-sm text-red-700 mt-2">
@@ -70,13 +68,12 @@
     </div>
     {{-- confirm password field --}}
     <div class="flex flex-col mb-4">
-        <label for="password-confirm" class="mb-2">Confirm Password</label>
+        <label for="password-confirm">Confirm Password</label>
         <input
             type="password" 
             id="password-confirm"
             name="password_confirmation"
-            class="p-4 bg-gray-100 focus:outline-none focus:shadow-outline shadow"
-            autocomplete="new-password"
+            class="p-4 bg-white focus:outline-none focus:shadow-outline shadow rounded"
         >
     </div>
     {{-- privacy agree --}}
@@ -87,7 +84,7 @@
     <div class="flex flex-col">
         <button 
             type="submit" 
-            class="p-4 bg-gray-100 focus:outline-none focus:shadow-outline shadow"
+            class="p-4 bg-white focus:outline-none focus:shadow-outline shadow rounded"
         >
                 Register
         </button>

@@ -9,22 +9,21 @@
         <span>&nbsp;/&nbsp;</span>
         <a href="{{ route('login') }}">Login</a>
     </div>
-    <div class="font-bold text-xl">
+    <div class="font-bold text-2xl">
         Login
     </div>
 </div>
 
-<form class="flex flex-col p-4 bg-white shadow mx-auto" action="{{ route('login') }}" method="POST">
+<form class="flex flex-col w-1/2" action="{{ route('login') }}" method="POST">
     @csrf
     {{-- email address field --}}
     <div class="flex flex-col mb-4">
-        <label for="email" class="mb-2">E-Mail Address</label>
+        <label for="email" class="">E-Mail Address</label>
         <input 
             type="text" 
             name="email"
             id="email"
-            class="p-4 bg-gray-100 focus:outline-none focus:shadow-outline shadow"
-            autofocus
+            class="p-4 bg-white focus:outline-none focus:shadow-outline shadow rounded"
         >
         @error('email')
         <div class="text-sm text-red-700 mt-2">
@@ -34,12 +33,12 @@
     </div>
     {{-- password field --}}
     <div class="flex flex-col mb-4">
-        <label for="password" class="mb-2">Password</label>
+        <label for="password" class="">Password</label>
         <input
             type="password"
             name="password"
             id="password"
-            class="p-4 bg-gray-100 focus:outline-none focus:shadow-outline shadow"
+            class="p-4 bg-white focus:outline-none focus:shadow-outline shadow rounded"
         >
         @error('password')
         <div class="text-sm text-red-700 mt-2">
@@ -58,7 +57,12 @@
     </label>
     {{-- submit button --}}
     <div class="flex flex-col">
-        <button type="submit" class="p-4 bg-gray-100 focus:outline-none focus:shadow-outline shadow">Login</button>
+        <button 
+            type="submit" 
+            class="p-4 bg-white focus:outline-none focus:shadow-outline shadow rounded"
+        >
+            Login
+        </button>
     </div>
 </form>
 
