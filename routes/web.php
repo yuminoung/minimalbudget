@@ -1,14 +1,21 @@
 
 <?php
 
-// use Illuminate\Support\Facades\Route;
+// oung
+Route::prefix('/')
+    ->name('oung.')
+    ->namespace('Oung')
+    ->group(function () {
+        Route::get('/', 'HomeController@index')->name('index');
+        Route::get('/profile', 'ProfileController@index')->name('profile.index');
+    });
 
-Route::get('/', 'Oung\HomeController@index')->name('oung.index');
-Route::get('/profile', 'Oung\ProfileController@index')->name('oung.profile.index');
-
-Route::group('budget', function () {
-    Route::get('/', 'Budget\HomeController@index')->name('oung.budget.home');
-});
-
+// budget
+Route::prefix('budget')
+    ->name('budget.')
+    ->namespace('Budget')
+    ->group(function () {
+        Route::get('/', 'HomeController@index')->name('index');
+    });
 
 Auth::routes();

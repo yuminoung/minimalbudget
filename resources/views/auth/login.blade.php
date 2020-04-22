@@ -2,17 +2,7 @@
 
 @section('content')
 
-<div class="my-4 flex flex-col">
-    {{-- breadcrumbs --}}
-    <div class="flex flex-row text-sm">
-        <a href="#">Oung</a>
-        <span>&nbsp;/&nbsp;</span>
-        <a href="{{ route('login') }}">Login</a>
-    </div>
-    <div class="font-bold text-2xl">
-        Login
-    </div>
-</div>
+<x-headline :breadcrumbs="$breadcrumbs">Login</x-headline>
 
 <form class="flex flex-col w-1/2" action="{{ route('login') }}" method="POST">
     @csrf

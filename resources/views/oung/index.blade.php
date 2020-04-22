@@ -5,9 +5,9 @@
 <x-headline :breadcrumbs="$breadcrumbs">Apps</x-headline>
 
 <div class="flex flex-col space-y-2">
-    <div class="">
+    <a href="{{ route('budget.index') }}">
         <span class="font-bold">Budget</span> - Minimalist budget, expense and income tracking web app.
-    </div>
+    </a>
     <div class="">
         <span class="font-bold">Calendar</span> - Minimalist simple to use calendar web app.
     </div>

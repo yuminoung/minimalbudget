@@ -70,4 +70,13 @@ class RegisterController extends Controller
             'password' => Hash::make($data['password']),
         ]);
     }
+
+    public function showRegistrationForm()
+    {
+        $breadcrumbs = [
+            'Oung' => route('oung.index'),
+            'Register' => route('register'),
+        ];
+        return view('auth.register', ['breadcrumbs' => $breadcrumbs]);
+    }
 }

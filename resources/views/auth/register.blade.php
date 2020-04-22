@@ -2,17 +2,8 @@
 
 @section('content')
 
-<div class="my-4">
-    {{-- breadcrumbs --}}
-    <div class="flex flex-row text-sm">
-        <a href="{{ url('/')}}">Oung</a>
-        <span>&nbsp;/&nbsp;</span>
-        <a href="{{ route('register') }}">Register</a>
-    </div>
-    <div class="font-bold text-xl">
-        Register
-    </div>
-</div>
+<x-headline :breadcrumbs="$breadcrumbs">Register</x-headline>
+
 
 <form 
     class="flex flex-col w-1/2" 

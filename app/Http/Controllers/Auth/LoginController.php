@@ -37,4 +37,13 @@ class LoginController extends Controller
     {
         $this->middleware('guest')->except('logout');
     }
+
+    public function showLoginForm()
+    {
+        $breadcrumbs = [
+            'Oung' => route('oung.index'),
+            'Login' => route('login')
+        ];
+        return view('auth.login', ['breadcrumbs' => $breadcrumbs]);
+    }
 }
