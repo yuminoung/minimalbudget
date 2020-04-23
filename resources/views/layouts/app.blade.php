@@ -21,51 +21,12 @@
 </head>
 <body>
     <div id="app" class="font-baloo bg-gray-100 text-gray-800 flex flex-col min-h-screen">
-        <header class="shadow">
-            <div class="flex flex-row justify-between items-center w-1/2 mx-auto">
-                <div class="font-bold text-2xl p-4">
-                    <a href="{{ url('/') }}" class="inline-block">Oung</a>
-                </div>
-                <div class="flex flex-row">
-                    @auth
-                        <a href="{{ route('oung.profile.index') }}" class="p-4">{{ auth()->user()->name }}</a>
 
-                        {{-- <div class="relative">
-                            <button class="p-4 block">                        
-                                {{ auth()->user()->name }}
-                            </button>
-                            <div class="flex flex-col bg-white shadow py-2 absolute right-0 mr-4 w-32">
-                                <a href="#" class="px-4 py-2 block">Profile</a>
-                                <a href="#" class="px-4 py-2 block">Settings</a>
-                                <a href="#" class="px-4 py-2 block">Logout</a>
-                            </div>
-                        </div> --}}
-            
-                    @else
-                        <a href="{{ route('login') }}" class="p-4 inline-block">Login</a>
-                        <a href="{{ route('register') }}" class="p-4 inline-block">Register</a>
-                    @endauth
-
-                </div>
-            </div>
-        </header>
-
+        @include('layouts._header')
         <main class="px-4 w-1/2 mx-auto flex-grow">
             @yield('content')
         </main>
-        
-        <footer class="p-4 w-1/2 mx-auto">
-            {{-- <div class="shadow bg-gray-100 p-4"> --}}
-            &copy; 2020 Oung. All rights reserved.
-            <div class="flex flex-row">
-                <a href="#" class="mr-4">About</a>
-                <a href="#" class="mr-4">Blog</a>
-                <a href="#" class="mr-4">Hire</a>
-                <a href="#" class="mr-4">Privacy</a>
-                <a href="#" class="">Terms</a>
-            </div>
-            {{-- </div> --}}
-        </footer>
+        @include('layouts._footer')
     </div>
 </body>
 </html>

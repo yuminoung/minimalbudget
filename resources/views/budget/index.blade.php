@@ -3,9 +3,8 @@
 @section('content')
 
 
-<x-headline :breadcrumbs="$breadcrumbs">
-    Budget
-</x-headline>
+<x-headline :breadcrumbs="$breadcrumbs" class="mt-4">Budget</x-headline>
+
 <div class="flex flex-row">
     <ul class="space-x-4 flex flex-row">
         <x-navigation-item :href="route('budget.index')">Budget</x-navigation-item>

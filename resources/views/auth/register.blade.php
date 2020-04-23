@@ -2,10 +2,10 @@
 
 @section('content')
 
-<x-headline :breadcrumbs="$breadcrumbs">Register</x-headline>
+<x-headline :breadcrumbs="$breadcrumbs" class="my-4">Register</x-headline>
 
 <form 
-    class="flex flex-col w-1/2 mt-4" 
+    class="flex flex-col w-1/2" 
     action="{{ route('register') }}"
     method="POST"
 >

@@ -2,9 +2,9 @@
 
 @section('content')
 
-<x-headline :breadcrumbs="$breadcrumbs">Apps</x-headline>
+<x-headline :breadcrumbs="$breadcrumbs" class="my-4">Apps</x-headline>
 
-<div class="flex flex-col space-y-2 mt-4">
+<div class="flex flex-col space-y-2">
     <a href="{{ route('budget.index') }}">
         <span class="font-bold">Budget</span> - Minimalist budget, expense and income tracking web app.
     </a>
