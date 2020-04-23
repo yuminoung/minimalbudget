@@ -4,9 +4,8 @@
 
 <x-headline :breadcrumbs="$breadcrumbs">Register</x-headline>
 
-
 <form 
-    class="flex flex-col w-1/2" 
+    class="flex flex-col w-1/2 mt-4" 
     action="{{ route('register') }}"
     method="POST"
 >

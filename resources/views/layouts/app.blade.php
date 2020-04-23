@@ -20,7 +20,7 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
 <body>
-    <div id="app" class="font-baloo bg-gray-100 flex flex-col min-h-screen">
+    <div id="app" class="font-baloo bg-gray-100 text-gray-800 flex flex-col min-h-screen">
         <header class="shadow">
             <div class="flex flex-row justify-between items-center w-1/2 mx-auto">
                 <div class="font-bold text-2xl p-4">

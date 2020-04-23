@@ -4,7 +4,7 @@
 
 <x-headline :breadcrumbs="$breadcrumbs">Login</x-headline>
 
-<form class="flex flex-col w-1/2" action="{{ route('login') }}" method="POST">
+<form class="flex flex-col w-1/2 mt-4" action="{{ route('login') }}" method="POST">
     @csrf
     {{-- email address field --}}
     <div class="flex flex-col mb-4">

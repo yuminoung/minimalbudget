@@ -16,6 +16,7 @@ Route::prefix('budget')
     ->namespace('Budget')
     ->group(function () {
         Route::get('/', 'HomeController@index')->name('index');
+        Route::get('/expenses', 'ExpenseController@index')->name('expenses.index');
     });
 
 Auth::routes();

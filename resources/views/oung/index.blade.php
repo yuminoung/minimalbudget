@@ -4,7 +4,7 @@
 
 <x-headline :breadcrumbs="$breadcrumbs">Apps</x-headline>
 
-<div class="flex flex-col space-y-2">
+<div class="flex flex-col space-y-2 mt-4">
     <a href="{{ route('budget.index') }}">
         <span class="font-bold">Budget</span> - Minimalist budget, expense and income tracking web app.
     </a>

@@ -1,4 +1,4 @@
-<div class="my-4 flex flex-col cursor-default">
+<div class="mt-4 flex flex-col cursor-default">
     {{-- breadcrumbs --}}
     <div class="flex flex-row text-sm">
         @foreach($breadcrumbs as $key => $route)
