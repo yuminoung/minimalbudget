@@ -1,3 +1,5 @@
-<div>
-    <!-- If you do not have a consistent goal in life, you can not live it in a consistent way. - Marcus Aurelius -->
+<div class="flex flex-row">
+    <ul class="space-x-4 flex flex-row">
+        {{ $slot }}
+    </ul>
 </div>
