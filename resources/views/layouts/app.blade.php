@@ -21,7 +21,6 @@
 </head>
 <body>
     <div id="app" class="font-baloo bg-gray-100 text-gray-800 flex flex-col min-h-screen">
-
         @include('layouts._header')
         <main class="px-4 w-1/2 mx-auto flex-grow">
             @yield('content')

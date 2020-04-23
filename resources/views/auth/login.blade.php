@@ -13,7 +13,7 @@
             type="text" 
             name="email"
             id="email"
-            class="p-4 bg-white focus:outline-none focus:shadow-outline shadow rounded"
+            class="p-4 bg-gray-100 focus:outline-none border-2 border-gray-700"
         >
         @error('email')
         <div class="text-sm text-red-700 mt-2">
