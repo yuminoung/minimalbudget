@@ -7,6 +7,14 @@ use Illuminate\Http\Request;
 
 class ExpenseController extends Controller
 {
+    private function setupBreadcrumbs()
+    {
+        return $breadcrumbs = [
+            'Oung' => route('oung.index'),
+            'Budget' => route('budget.index'),
+        ];
+    }
+
     public function index()
     {
         $breadcrumbs = [
@@ -15,6 +23,17 @@ class ExpenseController extends Controller
             'Expenses' => route('budget.expenses.index')
         ];
         return view('budget.expenses.index', [
+            'breadcrumbs' => $breadcrumbs
+        ]);
+    }
+
+    public function create()
+    {
+        $breadcrumbs = $this->setupBreadcrumbs();
+        $breadcrumbs['Expenses'] = route('budget.expenses.index');
+        $breadcrumbs['Create'] = route('budget.expenses.create');
+
+        return view('budget.expenses.create', [
             'breadcrumbs' => $breadcrumbs
         ]);
     }

@@ -13,7 +13,7 @@
             type="text" 
             name="email"
             id="email"
-            class="p-4 bg-gray-100 focus:outline-none border-2 border-gray-700"
+            class="p-4 bg-white shadow focus:outline-none focus:shadow-outline"
         >
         @error('email')
         <div class="text-sm text-red-700 mt-2">
@@ -28,7 +28,7 @@
             type="password"
             name="password"
             id="password"
-            class="p-4 bg-white focus:outline-none focus:shadow-outline shadow rounded"
+            class="p-4 bg-white focus:outline-none focus:shadow-outline shadow"
         >
         @error('password')
         <div class="text-sm text-red-700 mt-2">
@@ -49,7 +49,7 @@
     <div class="flex flex-col">
         <button 
             type="submit" 
-            class="p-4 bg-white focus:outline-none focus:shadow-outline shadow rounded"
+            class="p-4 bg-white focus:outline-none focus:shadow-outline shadow"
         >
             Login
         </button>
