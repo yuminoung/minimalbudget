@@ -14,6 +14,11 @@ class ProfileController extends Controller
 
     public function index()
     {
-        return view('oung.profile.index');
+        $breadcrumbs = [
+            'Oung' => route('oung.index'),
+            'Profile' => route('oung.profile.index'),
+        ];
+
+        return view('oung.profile.index', ['breadcrumbs' => $breadcrumbs]);
     }
 }

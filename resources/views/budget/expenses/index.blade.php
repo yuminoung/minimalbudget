@@ -9,12 +9,22 @@
 
     {{-- submenu --}}
     <div class="flex flex-row justify-between mb-4">
-        <div class="flex flex-row items-center space-x-4">
-            <input type="text" value="APR" class="w-20 px-4 py-1 text-center bg-white shadow focus:outline-none focus:shadow-outline">
-            <input type="text" value="2020" class="w-20 px-4 py-1 text-center bg-white shadow focus:outline-none focus:shadow-outline">
-            <input type="submit" value="Filter" class="w-20 px-4 py-1 text-center bg-white shadow focus:outline-none focus:shadow-outline">
+        <div class="flex flex-row space-x-4">
+            <select 
+                class="appearance-none rounded-none w-32 p-4 bg-white shadow focus:outline-none focus:shadow-outline"
+            >
+                @foreach($months as $index=>$m)
+                    @if(($index + 1) === $month)
+                    <option value="#" selected>{{ $m }}</option>
+                    @else
+                    <option value="#">{{ $m }}</option>
+                    @endif
+                @endforeach
+            </select>
+        <input type="text" value="{{ $year }}" class="w-20 p-4 bg-white shadow focus:outline-none focus:shadow-outline">
+            <input type="submit" value="Filter" class="w-20 p-4 text-center bg-white shadow focus:outline-none focus:shadow-outline">
         </div>
-        <a href="{{ route('budget.expenses.create') }}" class="w-20 px-4 py-1 text-center bg-white shadow focus:outline-none focus:shadow-outline">Create</a>
+        <a href="{{ route('budget.expenses.create') }}" class="w-20 p-4 text-center bg-white shadow focus:outline-none focus:shadow-outline">Create</a>
     </div>
 
     {{-- content --}}

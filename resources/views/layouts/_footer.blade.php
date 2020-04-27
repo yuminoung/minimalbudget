@@ -1,4 +1,4 @@
-<footer class="p-4 w-1/2 mx-auto">
+<footer class="px-4 my-10 w-1/2 mx-auto">
     {{-- <div class="shadow bg-gray-100 p-4"> --}}
     &copy; 2020 Oung. All rights reserved.
     <div class="flex flex-row">

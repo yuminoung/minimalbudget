@@ -2,8 +2,6 @@
 
 @section('content')
 
-    <div class="font-bold text-2xl">
-        Profile
-    </div>
+    <x-headline :breadcrumbs="$breadcrumbs" class="my-4">Profile</x-headline>
 
 @endsection
