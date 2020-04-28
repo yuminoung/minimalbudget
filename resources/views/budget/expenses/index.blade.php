@@ -13,15 +13,15 @@
             <select 
                 class="appearance-none rounded-none w-32 p-4 bg-white shadow focus:outline-none focus:shadow-outline"
             >
-                @foreach($months as $index=>$m)
-                    @if(($index + 1) === $month)
-                    <option value="#" selected>{{ $m }}</option>
+                @foreach($months as $index=>$month)
+                    @if(($index + 1) === $date->month)
+                    <option value="#" selected>{{ $month }}</option>
                     @else
-                    <option value="#">{{ $m }}</option>
+                    <option value="#">{{ $month }}</option>
                     @endif
                 @endforeach
             </select>
-        <input type="text" value="{{ $year }}" class="w-20 p-4 bg-white shadow focus:outline-none focus:shadow-outline">
+        <input type="text" value="{{ $date->year }}" class="w-20 p-4 bg-white shadow focus:outline-none focus:shadow-outline">
             <input type="submit" value="Filter" class="w-20 p-4 text-center bg-white shadow focus:outline-none focus:shadow-outline">
         </div>
         <a href="{{ route('budget.expenses.create') }}" class="w-20 p-4 text-center bg-white shadow focus:outline-none focus:shadow-outline">Create</a>
@@ -60,37 +60,30 @@
                 </div>
             </div>
         </div> --}}
-        <div class="flex flex-col shadow bg-white p-4 space-y-4">
-            <div class="font-bold text-xl">
-                6
+        @foreach($expenses as $date=>$expense)
+            <div class="flex flex-col shadow bg-white p-4 space-y-4">
+                <div class="font-bold text-xl">
+                    {{ \Carbon\Carbon::parse($date)->format('jS') }}
+                </div>
+                @foreach($expense as $e)
+                    <div class="flex flex-row justify-between">
+                        <div class="flex flex-col">
+                            <div class="">
+                                Coles
+                            </div>
+                            @if($e->note)
+                            <div class="">
+                                # {{ $e->note }}
+                            </div>
+                            @endif
+                        </div>
+                        <div class="#">
+                            $ {{ $e->amount }}
+                        </div>
+                    </div>
+                @endforeach
             </div>
-            <div class="flex flex-row justify-between">
-                <div class="flex flex-col">
-                    <div class="">
-                        Coles
-                    </div>
-                    <div class="">
-                        # bacon, eggs, milk, oil, nutella
-                    </div>
-                </div>
-                <div class="#">
-                    $ 30
-                </div>
-            </div>
-            <div class="flex flex-row justify-between">
-                <div class="flex flex-col">
-                    <div class="">
-                        JB HIFI
-                    </div>
-                    <div class="">
-                        # logitech gaming mouse
-                    </div>
-                </div>
-                <div class="#">
-                    $ 159
-                </div>
-            </div>
-        </div>
+        @endforeach
     </div>
 
 @endsection

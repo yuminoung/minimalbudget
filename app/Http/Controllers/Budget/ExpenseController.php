@@ -25,6 +25,9 @@ class ExpenseController extends Controller
     {
         $date = Carbon::now()->setTimezone('Australia/Victoria');
         $months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+
+        $expenses = auth()->user()->expenses()->orderBy('date', 'desc')->get()->groupBy('date');
+
         $breadcrumbs = [
             'Oung' => route('oung.index'),
             'Budget' => route('budget.index'),
@@ -32,9 +35,8 @@ class ExpenseController extends Controller
         ];
         return view('budget.expenses.index', [
             'breadcrumbs' => $breadcrumbs,
+            'expenses' => $expenses,
             'date' => $date,
-            'year' => $date->year,
-            'month' => $date->month,
             'months' => $months
         ]);
     }
