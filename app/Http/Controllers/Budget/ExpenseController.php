@@ -26,7 +26,15 @@ class ExpenseController extends Controller
         $date = Carbon::now()->setTimezone('Australia/Victoria');
         $months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
 
-        $expenses = auth()->user()->expenses()->orderBy('date', 'desc')->get()->groupBy('date');
+        $expenses = auth()->user()->expenses()
+            ->whereMonth('date', '=', Carbon::now())
+            ->whereYear('date', '=', Carbon::now())
+            ->orderBy('date', 'desc')
+            ->orderBy('created_at', 'desc')
+            ->leftJoin('categories', 'expenses.category_id', '=', 'categories.id')
+            ->select('expenses.*', 'categories.category_name')
+            ->get()
+            ->groupBy('date');
 
         $breadcrumbs = [
             'Oung' => route('oung.index'),
@@ -43,16 +51,14 @@ class ExpenseController extends Controller
 
     public function create()
     {
-
-
         $breadcrumbs = $this->setupBreadcrumbs();
         $breadcrumbs['Expenses'] = route('budget.expenses.index');
         $breadcrumbs['Create'] = route('budget.expenses.create');
-
-
+        $categories = auth()->user()->categories()->where('category_type', 'expense')->get();
 
         return view('budget.expenses.create', [
             'breadcrumbs' => $breadcrumbs,
+            'categories' => $categories,
         ]);
     }
 
@@ -62,6 +68,7 @@ class ExpenseController extends Controller
             'amount' => ['required'],
             'date' => ['required', 'date'],
             'note' => ['nullable'],
+            'category_id' => ['required']
         ]);
         auth()->user()->expenses()->create($attributes);
     }

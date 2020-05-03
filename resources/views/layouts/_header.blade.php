@@ -3,10 +3,10 @@
         <div class="font-bold text-2xl p-4">
             <a href="{{ url('/') }}" class="inline-block">Oung</a>
         </div>
-        <div class="flex flex-row">
+        <div class="flex flex-row items-center">
             @auth
+                {{-- <a href="#" class="text-s">{{ \Carbon\Carbon::now()->settings(['toStringFormat' => 'g:i a']) }}</a> --}}
                 <a href="{{ route('oung.profile.index') }}" class="p-4">{{ auth()->user()->name }}</a>
-
                 {{-- <div class="relative">
                     <button class="p-4 block">                        
                         {{ auth()->user()->name }}

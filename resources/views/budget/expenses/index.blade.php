@@ -8,8 +8,7 @@
     <x-budget.navigation></x-budget.navigation>
 
     {{-- submenu --}}
-    <div class="flex flex-row justify-between mb-4">
-        <div class="flex flex-row space-x-4">
+    <div class="flex flex-row mb-4 space-x-4">
             <select 
                 class="appearance-none rounded-none w-32 p-4 bg-white shadow focus:outline-none focus:shadow-outline"
             >
@@ -23,7 +22,6 @@
             </select>
         <input type="text" value="{{ $date->year }}" class="w-20 p-4 bg-white shadow focus:outline-none focus:shadow-outline">
             <input type="submit" value="Filter" class="w-20 p-4 text-center bg-white shadow focus:outline-none focus:shadow-outline">
-        </div>
         <a href="{{ route('budget.expenses.create') }}" class="w-20 p-4 text-center bg-white shadow focus:outline-none focus:shadow-outline">Create</a>
     </div>
 
@@ -60,30 +58,31 @@
                 </div>
             </div>
         </div> --}}
-        @foreach($expenses as $date=>$expense)
-            <div class="flex flex-col shadow bg-white p-4 space-y-4">
-                <div class="font-bold text-xl">
-                    {{ \Carbon\Carbon::parse($date)->format('jS') }}
-                </div>
+        @forelse($expenses as $date=>$expense)
+            <x-panel :title="\Carbon\Carbon::parse($date)->format('jS')">
                 @foreach($expense as $e)
                     <div class="flex flex-row justify-between">
-                        <div class="flex flex-col">
+                        <div class="flex flex-col w-5/6">
                             <div class="">
-                                Coles
+                                {{ $e->category_name }}
                             </div>
                             @if($e->note)
-                            <div class="">
-                                # {{ $e->note }}
+                            <div class="text-sm">
+                                {!! nl2br(e($e->note)) !!}
                             </div>
                             @endif
                         </div>
-                        <div class="#">
+                        <div class="w-1/6 text-right">
                             $ {{ $e->amount }}
                         </div>
                     </div>
                 @endforeach
+            </x-panel>
+        @empty
+            <div class="shadow p-4 bg-white">
+                Your have no expense, create
             </div>
-        @endforeach
+        @endforelse
     </div>
 
 @endsection

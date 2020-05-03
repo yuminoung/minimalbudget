@@ -17,6 +17,7 @@ class CreateCategoriesTable extends Migration
             $table->id();
             $table->foreignId('user_id');
             $table->string('category_name');
+            $table->enum('category_type', ['expense', 'income']);
             $table->timestamps();
         });
     }

@@ -5,9 +5,17 @@
             <label for="category">Category</label>
             <select
                 id="category"
+                name="category_id"
+                v-model="form.category_id"
                 class="appearance-none rounded-none p-4 bg-white shadow focus:outline-none focus:shadow-outline"
             >
-                <option value="#">Woolworths</option>
+                <option
+                    v-for="category in categories"
+                    v-bind:key="category.id"
+                    v-bind:value="category.id"
+                >
+                    {{ category.category_name }}
+                </option>
             </select>
         </div>
         <!-- Amount field -->
@@ -129,10 +137,12 @@
 
 <script>
 export default {
+    props: ["categories"],
     data() {
         return {
             errors: null,
             form: {
+                category_id: this.categories[0].id,
                 amount: null,
                 date: null,
                 note: null
@@ -206,7 +216,7 @@ export default {
             this.form.date =
                 this.selectedYear +
                 "-" +
-                this.selectedMonth +
+                (this.selectedMonth + 1) +
                 "-" +
                 this.selectedDay;
 

@@ -2037,11 +2037,21 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
+  props: ["categories"],
   data: function data() {
     return {
       errors: null,
       form: {
+        category_id: this.categories[0].id,
         amount: null,
         date: null,
         note: null
@@ -2091,7 +2101,7 @@ __webpack_require__.r(__webpack_exports__);
     submit: function submit() {
       var _this = this;
 
-      this.form.date = this.selectedYear + "-" + this.selectedMonth + "-" + this.selectedDay;
+      this.form.date = this.selectedYear + "-" + (this.selectedMonth + 1) + "-" + this.selectedDay;
       axios.post("/budget/expenses", this.form).then(function (res) {
         if (res.status === 200) {
           _this.form.amount = null;
@@ -37762,7 +37772,57 @@ var render = function() {
       }
     },
     [
-      _vm._m(0),
+      _c("div", { staticClass: "flex flex-col" }, [
+        _c("label", { attrs: { for: "category" } }, [_vm._v("Category")]),
+        _vm._v(" "),
+        _c(
+          "select",
+          {
+            directives: [
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.form.category_id,
+                expression: "form.category_id"
+              }
+            ],
+            staticClass:
+              "appearance-none rounded-none p-4 bg-white shadow focus:outline-none focus:shadow-outline",
+            attrs: { id: "category", name: "category_id" },
+            on: {
+              change: function($event) {
+                var $$selectedVal = Array.prototype.filter
+                  .call($event.target.options, function(o) {
+                    return o.selected
+                  })
+                  .map(function(o) {
+                    var val = "_value" in o ? o._value : o.value
+                    return val
+                  })
+                _vm.$set(
+                  _vm.form,
+                  "category_id",
+                  $event.target.multiple ? $$selectedVal : $$selectedVal[0]
+                )
+              }
+            }
+          },
+          _vm._l(_vm.categories, function(category) {
+            return _c(
+              "option",
+              { key: category.id, domProps: { value: category.id } },
+              [
+                _vm._v(
+                  "\n                " +
+                    _vm._s(category.category_name) +
+                    "\n            "
+                )
+              ]
+            )
+          }),
+          0
+        )
+      ]),
       _vm._v(" "),
       _c("div", { staticClass: "flex flex-col" }, [
         _c("label", { attrs: { for: "amount" } }, [_vm._v("Amount")]),
@@ -37981,26 +38041,7 @@ var render = function() {
     ]
   )
 }
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "flex flex-col" }, [
-      _c("label", { attrs: { for: "category" } }, [_vm._v("Category")]),
-      _vm._v(" "),
-      _c(
-        "select",
-        {
-          staticClass:
-            "appearance-none rounded-none p-4 bg-white shadow focus:outline-none focus:shadow-outline",
-          attrs: { id: "category" }
-        },
-        [_c("option", { attrs: { value: "#" } }, [_vm._v("Woolworths")])]
-      )
-    ])
-  }
-]
+var staticRenderFns = []
 render._withStripped = true
 
 
