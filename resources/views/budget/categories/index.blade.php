@@ -36,7 +36,7 @@
                     {{ $income->category_name }}
                 </div>
                 <div class="text-xs">
-                    <a href="#" class="text-blue-700">Edit</a>
+                    <a href="{{ route('budget.categories.edit', $income->id) }}" class="text-blue-700">Edit</a>
                 </div>
             </div>
         @empty

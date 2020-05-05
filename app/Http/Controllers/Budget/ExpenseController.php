@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Budget;
 
 use App\Http\Controllers\Controller;
+use App\Model\Budget\Expense;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 
@@ -71,5 +72,19 @@ class ExpenseController extends Controller
             'category_id' => ['required']
         ]);
         auth()->user()->expenses()->create($attributes);
+    }
+
+    public function edit(Expense $expense)
+    {
+        $breadcrumbs = [
+            'Oung' => route('oung.index'),
+            'Budget' => route('budget.index'),
+            'Expenses' => route('budget.expenses.index'),
+            'Edit' => route('budget.expenses.edit', $expense)
+        ];
+        return view('budget.expenses.edit', [
+            'breadcrumbs' => $breadcrumbs,
+            'expense' => $expense
+        ]);
     }
 }

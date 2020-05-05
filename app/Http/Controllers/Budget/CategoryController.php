@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Budget;
 use App\Http\Controllers\Controller;
 use App\Model\Budget\Category;
 use Illuminate\Http\Request;
+use Illuminate\Validation\Rule;
 
 class CategoryController extends Controller
 {
@@ -45,7 +46,11 @@ class CategoryController extends Controller
     public function store()
     {
         $attributes = request()->validate([
-            'category_type' => ['required'],
+            'category_type' => [
+                'required',
+
+                Rule::in(['expense', 'income'])
+            ],
             'category_name' => ['required'],
         ]);
         auth()->user()->categories()->create($attributes);
@@ -69,5 +74,13 @@ class CategoryController extends Controller
 
     public function update(Category $category)
     {
+        $attributes = request()->validate([
+            'category_type' => ['required'],
+            'category_name' => ['required']
+        ]);
+
+        $category->update($attributes);
+
+        return redirect()->route('budget.categories.index');
     }
 }

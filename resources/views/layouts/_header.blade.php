@@ -6,7 +6,8 @@
         <div class="flex flex-row items-center">
             @auth
                 {{-- <a href="#" class="text-s">{{ \Carbon\Carbon::now()->settings(['toStringFormat' => 'g:i a']) }}</a> --}}
-                <a href="{{ route('oung.profile.index') }}" class="p-4">{{ auth()->user()->name }}</a>
+                <a href="#" class="px-4 py-2 bg-gray-700 text-white text-xs">PRO</a>
+                <a href="{{ route('profile.index') }}" class="p-4">{{ auth()->user()->name }}</a>
                 {{-- <div class="relative">
                     <button class="p-4 block">                        
                         {{ auth()->user()->name }}

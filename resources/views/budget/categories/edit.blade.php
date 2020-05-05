@@ -7,7 +7,13 @@
     </x-headline>
 
     <form action="{{ route('budget.categories.update', $category) }}" method="POST" class="flex flex-col w-1/2 space-y-4">
-        <x-form-input name="category_name" label="Category Name" :value="$category->category_name"></x-form-input>
+        <x-form.form-select 
+            name="category_type"
+            label="Type"
+            :values="['expense' => 'Expense', 'income' => 'Income']"
+        >
+        </x-form-select>
+        <x-form.form-input name="category_name" label="Category" :value="$category->category_name"></x-form-input>
         <x-form.form-button value="Update"></x-form.form-button>
         @csrf
         @method('PATCH')
