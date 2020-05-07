@@ -6,6 +6,11 @@
         Edit
     </x-headline>
 
-    {{ $expense->user_id }}
+    <budget-expense-create
+        :categories="{{ $categories }}"
+        :expense="{{ $expense }}"
+    >
+    </budget-expense-create>
+
 
 @endsection

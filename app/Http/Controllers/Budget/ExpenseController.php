@@ -24,7 +24,7 @@ class ExpenseController extends Controller
 
     public function index()
     {
-        $date = Carbon::now()->setTimezone('Australia/Victoria');
+        $date = Carbon::now()->setTimezone('Asia/Harbin');
         $months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
 
         $expenses = auth()->user()->expenses()
@@ -82,9 +82,12 @@ class ExpenseController extends Controller
             'Expenses' => route('budget.expenses.index'),
             'Edit' => route('budget.expenses.edit', $expense)
         ];
+
+        $categories = auth()->user()->categories()->where('category_type', 'expense')->get();
         return view('budget.expenses.edit', [
             'breadcrumbs' => $breadcrumbs,
-            'expense' => $expense
+            'expense' => $expense,
+            'categories' => $categories,
         ]);
     }
 }

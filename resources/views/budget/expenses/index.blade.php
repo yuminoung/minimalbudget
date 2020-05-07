@@ -22,7 +22,7 @@
             </select>
         <input type="text" value="{{ $date->year }}" class="w-20 p-4 bg-white shadow focus:outline-none focus:shadow-outline">
             <input type="submit" value="Filter" class="w-20 p-4 text-center bg-white shadow focus:outline-none focus:shadow-outline">
-        <a href="{{ route('budget.expenses.create') }}" class="w-20 p-4 text-center bg-white shadow focus:outline-none focus:shadow-outline">Create</a>
+        <a href="{{ route('budget.expenses.create') }}" class="p-4 text-center bg-white shadow focus:outline-none focus:shadow-outline">Create</a>
     </div>
 
     {{-- content --}}
@@ -61,7 +61,7 @@
         @forelse($expenses as $date=>$expense)
             <x-panel :title="\Carbon\Carbon::parse($date)->format('jS')">
                 @foreach($expense as $e)
-                    <div class="flex flex-row justify-between">
+                <a class="flex flex-row justify-between block" href="{{ route('budget.expenses.edit', $e) }}">
                         <div class="flex flex-col w-5/6">
                             <div class="">
                                 {{ $e->category_name }}
@@ -75,7 +75,7 @@
                         <div class="w-1/6 text-right">
                             $ {{ $e->amount }}
                         </div>
-                    </div>
+                    </a>
                 @endforeach
             </x-panel>
         @empty
